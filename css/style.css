@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    background-image:  url(../img/game-dash.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 60px;
+    padding-bottom: 130px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.main {
+    max-width: 1366px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.score-frame {
+    position: relative;
+    max-width: 300px;
+}
+
+.score-frame__speed-box {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 136px;
+    height: 136px;
+    background: #FFFFFF;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.09);
+    border-radius: 50%;
+}
+
+.speed-score__box {
+    width: 71px;
+    height: 69px;
+    background-image:  url(../img/star.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    line-height: 75px;
+}
+
+
+.score-frame__main-score {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 50px;
+    border-radius: 35px;
+    background: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25), 0 0 10px rgba(0, 0, 0, 0.25) inset;
+    border: 10px solid #FFFFFF;
+    background-color: #A0B4BE;
+    transform: translate(30%, 10%);
+}
+
+.main-score__counter {
+    position: absolute;
+    right: 20%;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 35px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.score-frame__lives {
+    display: flex;
+    align-items: center;
+    width: 193px;
+    height: 46px;
+    background: #FFFFFF;
+    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    margin-left: 50px;
+    margin-top: 6px;
+}
+
+.lives {
+    display: flex;
+    flex-direction: row;
+    max-width: 80px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.lives__heart:not(:last-child) {
+    padding-right: 5px;
+}
+
+.lives__heart_active path{
+    fill: #FF1A00;
+}
+
+.index-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.index-frame__start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 237px;
+    height: 65px;
+    border-radius: 36px;
+    background-color: #fff;
+    border: none;
+    margin-right: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.index-frame__start-hov {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 36px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #27A8F3;
+}
+
+.index-frame__start-hov:hover,
+.index-frame__guide-hov:hover  {
+    background-color: #27A8F3;
+    color: #FFFFFF;
+}
+
+.index-frame__guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 36px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.index-frame__guide-hov {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 36px;
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: bold;
+    color: #27A8F3;
+}
+
+.game-zone {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: 0 auto
+}
+
+.game-zone__pipe {
+    width: 225px;
+    height: 167px;
+    background: #AE8348;
+    box-shadow: inset 0px 9px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.game-zone__pipe:nth-child(4) {
+    transform: translateX(70%);
+}
+
+.game-zone__pipe:nth-child(5)  {
+    transform: translateX(-70%);
+}
+
+.game-zone__pipe:nth-child(4),
+.game-zone__pipe:nth-child(5) {
+    margin-top: 30px;
+}
+
+.game-zone__pipe:nth-child(1)  {
+    transform: translate(-10%, -20%);
+}
+
+.game-zone__pipe:nth-child(3) {
+    transform: translate(10%, -20%);
+}
+
+
+
+
+

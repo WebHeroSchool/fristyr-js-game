@@ -17,25 +17,15 @@
     .index-frame {
         margin-top: -10px;
     }
-    .index-frame__start {
+    .button_start {
         width: 220px;
         height: 55px;
         margin-right: 15px;
     }
 
-    .index-frame__guide {
-        width: 50px;
-        height: 50px;
-    }
-
-    .index-frame__start-hov {
-        width: 180px;
-        height: 35px;
-    }
-
-    .index-frame__guide-hov {
-        width: 30px;
-        height: 30px;
+    .button_guide {
+        width: 55px;
+        height: 55px;
     }
     
     .game-zone {
@@ -83,17 +73,14 @@
     .index-frame {
         margin-top: -5px;
     }
-    .index-frame__start {
+    .button_start {
         width: 180px;
         height: 50px;
     }
-    .index-frame__start-hov {
-        width: 150px;
-        height: 35px;
-    }
-    .index-frame__guide-hov {
-        width: 35px;
-        height: 35px;
+
+    .button_guide {
+        width: 50px;
+        height: 50px;
     }
     .game-zone__pipe {
         width: 165px;
@@ -114,7 +101,7 @@
     .score-frame__main-score {
         width: 160px;
     }
-    .index-frame__start {
+    .button_start {
         width: 145px;
     }
     .index-frame__start-hov {
@@ -138,13 +125,11 @@
     }
     .index-frame {
         flex-direction: column;
-        max-width: 105px;
+        align-items: flex-end;
     }
-    .index-frame__start {
-        margin-bottom: 5px;
-    }
-    .index-frame__guide {
-        margin: 0 auto;
+
+    .button_start {
+        margin: 0 0 5px 0;
     }
 
     .game-zone {
@@ -173,23 +158,16 @@
         padding-left: 5px;
         padding-right: 5px;
     }
-    .index-frame__start {
-        width: 105px;
-    }
-    .index-frame__start-hov {
-        width: 90px;
+
+    .button_start {
         font-size: 16px;
     }
-    .index-frame__guide {
+    .guide_guide {
         width: 35px;
         height: 35px;
-        
+        font-size: 16px;   
     }
-    .index-frame__guide-hov {
-        width: 25px;
-        height: 25px;
-        font-size: 16px;
-    }
+
     .game-zone__pipe {
         width: 110px;
         height: 100px;

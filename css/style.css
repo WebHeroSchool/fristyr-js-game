@@ -136,67 +136,32 @@ a {
     margin-top: -20px;
 }
 
-.index-frame__start {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 237px;
-    height: 65px;
-    border-radius: 36px;
+.button {
     background-color: #fff;
-    border: none;
-    margin-right: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-}
-
-.index-frame__start-hov {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 45px;
-    border: none;
+    border: 10px solid #fff;
     border-radius: 36px;
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    font-size: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #27A8F3;
+    font: 800 20px Montserrat;
     text-align: center;
     text-transform: uppercase;
-    color: #27A8F3;
 }
 
-.index-frame__start-hov:hover,
-.index-frame__guide-hov:hover  {
+.button:hover {
     background-color: #27A8F3;
     color: #FFFFFF;
 }
 
-.index-frame__guide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 36px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.button_start {
+    width: 237px;
+    height: 75px;
+    margin-right: 30px;
 }
 
-.index-frame__guide-hov {
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 36px;
-    font-family: "Montserrat";
+.button_guide {
+    width: 75px;
+    height: 75px;
     font-size: 30px;
-    font-weight: bold;
-    color: #27A8F3;
 }
 
 .game-zone {

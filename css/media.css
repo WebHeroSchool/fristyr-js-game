@@ -37,6 +37,10 @@
         transform: translate(-10%, -20%);
         margin: 0;
     }
+    
+    .modal {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 660px) {
@@ -71,12 +75,18 @@
     .button_start {
         margin: 0 0 5px 0;
     }
-    .button_guide {
-        margin: 0 auto;
-    }
+
     .game-zone__pipe {
         width: 130px;
         height: 100px;
+    }
+
+    .modal__title,
+    .modal__submit {
+        font-size: 24px;
+    }
+    .modal__name {
+        font-size: 14px;
     }
 }
 
@@ -97,96 +107,12 @@
     .game-zone__pipe:nth-child(3) {
         transform: translate(-35% , -80%);
     }
+    .modal__title {
+        margin-top: -8%;
+    }
+    .modal__submit {
+        margin-bottom: -11%;
+    }
+
+
 }
-/* 
-@media screen and (max-width: 550px) {
-    .index-frame {
-        margin-top: 5px;
-    }
-    .score-frame__lives {
-        width: 150px;
-    }
-    .score-frame__main-score {
-        width: 160px;
-    }
-    .button_start {
-        width: 145px;
-    }
-    .index-frame__start-hov {
-        width: 130px;
-        font-size: 16px;
-    }
-    .game-zone__pipe {
-        width: 130px;
-        height: 110px;
-    }
-    .game-zone {
-        max-width: 450px;
-    }
-}
-
-@media screen and (max-width: 485px) {
-    .header {
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 160px;
-    }
-    .index-frame {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .button_start {
-        margin: 0 0 5px 0;
-    }
-
-    .game-zone {
-        max-width: 390px;
-    }
-    .game-zone__pipe:nth-child(4) {
-        transform: translateX(45%);
-    }
-    .game-zone__pipe:nth-child(5) {
-        transform: translateX(-45%);
-    }
-    .game-zone__pipe:nth-child(4), 
-    .game-zone__pipe:nth-child(5) {
-        margin-top: 10px;
-    }
-    .game-zone__pipe:nth-child(1) {
-        transform: translate(25%, -85%);
-    }
-    .game-zone__pipe:nth-child(3) {
-        transform: translate(-15%, -85%);
-    }
-}
-
-@media screen and (max-width: 410px) {
-    .header {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    .button_start {
-        font-size: 16px;
-    }
-    .guide_guide {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;   
-    }
-
-    .game-zone__pipe {
-        width: 110px;
-        height: 100px;
-    }
-    .game-zone {
-        max-width: 330px;
-    }
-    .game-zone__pipe:nth-child(4) {
-        transform: translateX(25%);
-    }
-    .game-zone__pipe:nth-child(5) {
-        transform: translateX(-25%);
-    }
-} */ 

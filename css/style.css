@@ -11,7 +11,7 @@ html {
 body {
     color: #000;
     font-family: "Montserrat", sans-serif;
-    background: rgb(178, 236, 124) url(../img/game-dash.png) no-repeat;
+    background: rgb(113,181,66) url(../img/game-dash.png) no-repeat;
     background-size: cover;
 }
 .main {
@@ -151,7 +151,7 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 140px);
     width: 100%;
 }
 
@@ -210,33 +210,34 @@ body {
 
 .modal {
     position: absolute;
-    left: 25%;
-    top: 20%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -28%);
     z-index: 5;
-    max-width: 820px;
+    max-width: 750px;
     width: 100%;
     border: 1.5rem solid #fff;
     border-radius: 3.5rem;
     background: #27A8F3;
-    padding: 0px 30px 0px 30px;
+    padding: 0px 3% 0px 3%;
 }
 
 .modal__title {
-    max-width: 515px;
+    max-width: 450px;
     background: #FFFFFF;
     border-radius: 5rem;
-    padding: 25px 80px 25px 80px;
+    padding: 2% 8% 2% 8%;
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     text-transform: uppercase;
     color: #27A8F3;
     margin: 0 auto;
     margin-top: -6%;
-    margin-bottom: 90px;
+    margin-bottom: 11%;
 }
 
 
@@ -245,8 +246,12 @@ body {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    font-size: 20px;
+    font-size: 17px;
     color: #FFFFFF;
+}
+
+.rule-name {
+    padding-bottom: 2%;
 }
 
 .modal__name::first-letter {
@@ -263,13 +268,13 @@ body {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     color: #FFFFFF;
-    padding: 15px 70px 15px 70px;
+    padding: 2% 10% 2% 10%;
     margin: 0 auto;
     margin-bottom: -6%;
-    margin-top: 90px;
+    margin-top: 9%;
     
 }
 

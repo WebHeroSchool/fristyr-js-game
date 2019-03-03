@@ -1,11 +1,11 @@
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1020px) {
     .header__board {
         margin-top: 0;
         transform: translateY(-8%);
     }
 
     .game-zone__pipe {
-        margin-right: 40px;
+        margin-right: 30px;
         width: 200px;
         height: 142px;
     }
@@ -15,59 +15,46 @@
     }
 }
 
-/* @media screen and (max-width: 850px) {
+ @media screen and (max-width: 850px) {
+    html {
+        font-size: 7px;
+    }
     .game-zone__pipe {
-        width: 190px;
-        height: 150px;
+        width: 170px;
+        height: 120px;
     }
-    .game-zone {
-        max-width: 670px;
-    }
+
     .game-zone__pipe:nth-child(1) {
         transform: translate(10%, -20%);
     }
     .game-zone__pipe:nth-child(3) {
         transform: translate(-10%, -20%);
+        margin: 0;
     }
 }
 
 @media screen and (max-width: 660px) {
-    .score-frame__speed-box {
-        width: 100px;
-        height: 100px;
-    }
-    .score-frame__main-score {
-        width: 180px;
-        height: 30px;
-    }
-    .main-score__counter {
-        font-size: 20px;
-    }
-    .score-frame__lives {
-        width: 160px;
-        height: 30px;
-    }
-    .index-frame {
-        margin-top: -5px;
-    }
-    .button_start {
-        width: 180px;
-        height: 50px;
+    .game-zone__pipe:nth-child(1),
+    .game-zone__pipe:nth-child(2),
+    .game-zone__pipe:nth-child(3) {
+        margin: 0;
+        transform: translate(0);
     }
 
-    .button_guide {
-        width: 50px;
-        height: 50px;
+    .game-zone__pipe:nth-child(2) {
+        transform: translateY(20%);
     }
-    .game-zone__pipe {
-        width: 165px;
-        height: 120px;
+
+    .game-zone__pipe:nth-child(4) {
+        transform: translate(40%);
     }
-    .game-zone {
-        max-width: 570px;
+
+    .game-zone__pipe:nth-child(5) {
+        transform: translate(-25%);
     }
+    
 }
-
+/* 
 @media screen and (max-width: 550px) {
     .index-frame {
         margin-top: 5px;
@@ -158,4 +145,4 @@
     .game-zone__pipe:nth-child(5) {
         transform: translateX(-25%);
     }
-} */ */
+} */ 

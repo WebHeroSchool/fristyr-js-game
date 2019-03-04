@@ -163,10 +163,9 @@ body {
 }
 
 .game-zone__pipe {
+    position: relative;
     margin-right: 40px;
     text-align: center;
-
-
     width: 225px;
     height: 167px;
     background: #AE8348;
@@ -315,6 +314,7 @@ body {
     color: #FFFFFF;
     margin-top: -35px;
 }
+
 
 
 

@@ -39,13 +39,14 @@ class Game {
 
     creatingAnimals() {
         let currentPipe = this.randomPipe();
-        currentPipe.innerHTML = this.randomAnimals();
         currentPipe.addEventListener('click', this.emojeClickHandler);
+        currentPipe.innerHTML = this.randomAnimals();
         setTimeout(()=> {
-          currentPipe.removeEventListener('click', this.emojeClickHandler, false)
+          currentPipe.removeEventListener('click', this.emojeClickHandler, false);
+          currentPipe.innerHTML = ''
         }, this.speed);
       }
-
+      
       startGame() {
         setInterval(() => this.creatingAnimals(), this.speed);
       }

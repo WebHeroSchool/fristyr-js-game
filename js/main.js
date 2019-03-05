@@ -1,4 +1,5 @@
-class catchMouse {
+
+class Game {
     constructor(){
         this.score = 0;
         this.lives = 3;
@@ -18,9 +19,6 @@ class catchMouse {
         this.selectPipe = document.querySelectorAll('.game-zone__pipe');
         
     }
-
-
-
     randomPipe() {
         const indexPipe = Math.floor (Math.random() * this.selectPipe.length);
         const pipe = this.selectPipe[indexPipe];
@@ -31,22 +29,34 @@ class catchMouse {
           this.lastPipe = pipe;
           return pipe;
     }
-    getRandomEmoje() {
+
+    randomAnimals() {
         const indexEmoje = Math.floor (Math.random() * this.animals.length);
         const animals = this.animals[indexEmoje];
         console.log(indexEmoje);
         return animals;
     }
-    appearingOfEmoje() {
-        const createAnimalWrapp = document.createElement("span");
-        createAnimalWrapp.innerHTML = randomAnimal;
-    }
-    gameInit() {
-        
-    }
+
+    creatingAnimals() {
+        let currentPipe = this.randomPipe();
+        currentPipe.innerHTML = this.randomAnimals();
+        currentPipe.addEventListener('click', this.emojeClickHandler);
+        setTimeout(()=> {
+          currentPipe.removeEventListener('click', this.emojeClickHandler, false)
+        }, this.speed);
+      }
+
+      startGame() {
+        setInterval(() => this.creatingAnimals(), this.speed);
+      }
       
 }
 
 
-let test = new catchMouse().getRandomEmoje();
-console.log(test)
+let game = new Game;
+game.startGame();
+
+
+
+
+  

@@ -163,6 +163,10 @@ body {
 }
 
 .game-zone__pipe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10em;
     position: relative;
     margin-right: 40px;
     text-align: center;
@@ -314,6 +318,8 @@ body {
     color: #FFFFFF;
     margin-top: -35px;
 }
+
+
 
 
 

@@ -7,7 +7,7 @@ class Game {
         this.isMouse = false;
         this.levelSpeed = 1;
         this.lastPipe;
-        this.speed = 2100;
+        this.speed = 1500;
 
         
 
@@ -16,7 +16,8 @@ class Game {
 
 
         this.startButt = document.getElementById('gameButt');
-        this.selectPipe = document.querySelectorAll('.game-zone__pipe');
+        this.selectPipe = document.querySelectorAll('.game-zone__pipe_animal');
+        
         
     }
     randomPipe() {
@@ -33,21 +34,27 @@ class Game {
     randomAnimals() {
         const indexEmoje = Math.floor (Math.random() * this.animals.length);
         const animals = this.animals[indexEmoje];
-        console.log(indexEmoje);
         return animals;
     }
 
+
     creatingAnimals() {
         let currentPipe = this.randomPipe();
-        currentPipe.addEventListener('click', this.emojeClickHandler);
+        currentPipe.addEventListener('click', () => this.clickOnEmoji());
         currentPipe.innerHTML = this.randomAnimals();
+        currentPipe.classList.add('emoji_animation');
         setTimeout(()=> {
-          currentPipe.removeEventListener('click', this.emojeClickHandler, false);
+          currentPipe.classList.remove('emoji_animation');
+          currentPipe.removeEventListener('click', this.clickOnEmoji, false);
           currentPipe.innerHTML = ''
         }, this.speed);
       }
-      
-      startGame() {
+
+      clickOnEmoji(evt) {
+        console.log( 'pipe' , 'number= ' + this.randomPipe() , ':' , 'emoji= ' , '' + this.randomAnimals())
+      } 
+
+    startGame() {
         setInterval(() => this.creatingAnimals(), this.speed);
       }
       

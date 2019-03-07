@@ -93,23 +93,33 @@ body {
     background: #FFFFFF;
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 35px;
-    margin:  5% 0 0 20%;
+    margin:  4% 0 0 20%;
 }
 
-.lives__heart-wrapper {
+.lives-wrapp {
     display: flex;
     width: 100%;
     justify-content: flex-end;
     padding: 5% 9% 0 0;
 }
 
-.lives__heart:not(:last-child) {
+.lives-wrapp__heart:not(:last-child) {
     padding-right: 5px;
 }
 
-.lives__heart-active path{
-    fill: #FF1A00;
+.lives-wrapp__heart {
+    max-width: 25px;
+    max-height: 20px;
+    width: 2.2rem;
+    height: 2rem;
+    background: url(../img/heart-disabled.svg) no-repeat;
+    
 }
+
+.lives-wrapp__heart_active {
+    background: url(../img/heart-active.svg) no-repeat;
+}
+
 
 .header__buttons {
     display: flex;
@@ -338,6 +348,8 @@ body {
     transform: translateY(-20px);
     opacity: 1;
 }
+
+
 
 
 

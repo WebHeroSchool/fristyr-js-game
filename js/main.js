@@ -1,63 +1,57 @@
 
 class Game {
-    constructor(){
-        this.score = 0;
-        this.lives = 3;
-        this.isRunning = false;
-        this.isMouse = false;
-        this.levelSpeed = 1;
-        this.lastPipe;
-        this.speed = 1500;
+  constructor(){
+      this.score = 0;
+      this.lives = 3;
+      this.isRunning = false;
+      this.isMouse = false;
+      this.levelSpeed = 1;
+      this.lastPipe;
+      this.speed = 1500;
+      this.currentEmoji = null;
 
-        
-
-
-        this.animals = ['🐭', '🐼', '🐻', '🦊', '🐱', '🐮', '🦁', '🐽', '🐨', '🐰', '🐯'];
-
-
-        this.startButt = document.getElementById('gameButt');
-        this.selectPipe = document.querySelectorAll('.game-zone__pipe_animal');
-        
-        
-    }
-    randomPipe() {
-        const indexPipe = Math.floor (Math.random() * this.selectPipe.length);
-        const pipe = this.selectPipe[indexPipe];
-
-        if (pipe === this.lastPipe) {
-            return this.randomPipe();
-          }
-          this.lastPipe = pipe;
-          return pipe;
-    }
-
-    randomAnimals() {
-        const indexEmoje = Math.floor (Math.random() * this.animals.length);
-        const animals = this.animals[indexEmoje];
-        return animals;
-    }
-
-
-    creatingAnimals() {
-        let currentPipe = this.randomPipe();
-        currentPipe.addEventListener('click', () => this.clickOnEmoji());
-        currentPipe.innerHTML = this.randomAnimals();
-        currentPipe.classList.add('emoji_animation');
-        setTimeout(()=> {
-          currentPipe.classList.remove('emoji_animation');
-          currentPipe.removeEventListener('click', this.clickOnEmoji, false);
-          currentPipe.innerHTML = ''
-        }, this.speed);
-      }
-
-      clickOnEmoji(evt) {
-        console.log( 'pipe' , 'number= ' + this.randomPipe() , ':' , 'emoji= ' , '' + this.randomAnimals())
-      } 
-
-    startGame() {
-        setInterval(() => this.creatingAnimals(), this.speed);
-      }
       
+
+
+      this.animals = ['🐭', '🐼', '🐻', '🦊', '🐱', '🐮', '🦁', '🐽', '🐨', '🐰', '🐯'];
+
+
+      this.startButt = document.getElementById('gameButt');
+      this.selectPipe = document.querySelectorAll('.game-zone__pipe');
+      
+  }
+  randomPipe() {
+      const indexPipe = Math.floor (Math.random() * this.selectPipe.length);
+      const pipe = this.selectPipe[indexPipe];
+      return pipe;
+  }
+
+  randomAnimals() {
+      const indexEmoje = Math.floor (Math.random() * this.animals.length);
+      const animals = this.animals[indexEmoje];
+      return animals;
+  }
+
+
+  creatingAnimals() {
+    let currentPipe = this.randomPipe();
+    this.currentEmoji = this.randomAnimals();
+    currentPipe.innerHTML = this.currentEmoji
+    currentPipe.classList.add('emoji_animation');
+    setTimeout(()=> {
+      currentPipe.classList.remove('emoji_animation');
+      currentPipe.innerHTML = ''
+    }, this.speed);
+  }
+  startGame() {
+    setInterval(() => this.creatingAnimals(), this.speed);
+    document.addEventListener('click', () => this.clickOnEmoji());
+  }
+
+ clickOnEmoji(evt) {
+    console.log( 'emoji = ' + this.currentEmoji )
+  } 
+    
 }
 
 

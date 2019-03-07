@@ -1,4 +1,3 @@
-
 class Game {
   constructor(){
       this.score = 0;
@@ -6,9 +5,9 @@ class Game {
       this.isRunning = false;
       this.isMouse = false;
       this.levelSpeed = 1;
-      this.lastPipe;
       this.speed = 1500;
       this.currentEmoji = null;
+      this.currentPipe = null
 
       
 
@@ -17,12 +16,13 @@ class Game {
 
 
       this.startButt = document.getElementById('gameButt');
-      this.selectPipe = document.querySelectorAll('.game-zone__pipe');
+      this.selectPipe = document.querySelectorAll('.game-zone__pipe_animal');
       
   }
   randomPipe() {
       const indexPipe = Math.floor (Math.random() * this.selectPipe.length);
       const pipe = this.selectPipe[indexPipe];
+      this.currentPipe = pipe
       return pipe;
   }
 
@@ -33,23 +33,27 @@ class Game {
   }
 
 
-  creatingAnimals() {
+creatingAnimals() {
     let currentPipe = this.randomPipe();
     this.currentEmoji = this.randomAnimals();
-    currentPipe.innerHTML = this.currentEmoji
+    currentPipe.innerHTML = this.currentEmoji;
     currentPipe.classList.add('emoji_animation');
     setTimeout(()=> {
       currentPipe.classList.remove('emoji_animation');
-      currentPipe.innerHTML = ''
+      currentPipe.innerHTML = '';
     }, this.speed);
   }
-  startGame() {
+startGame() {
     setInterval(() => this.creatingAnimals(), this.speed);
-    document.addEventListener('click', () => this.clickOnEmoji());
+    document.addEventListener('click', (e) => this.clickOnEmoji(e));
   }
 
  clickOnEmoji(evt) {
-    console.log( 'emoji = ' + this.currentEmoji )
+    if (evt.target === this.currentPipe) {
+      console.log('emoji = ' + this.currentEmoji)
+    } else {
+      console.log(" Please click on animal ")
+    }
   } 
     
 }

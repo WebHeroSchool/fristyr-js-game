@@ -100,10 +100,15 @@ startGame() {
 
 let buttonStart = document.querySelector('.button_start');
 
-buttonStart.addEventListener('click', ()=> {
-  let game = new Game;
-  game.startGame();
-})
+
+function buttonClick () {
+    buttonStart.removeEventListener('click', buttonClick, false);
+    let game = new Game;
+    game.startGame();
+}
+  
+buttonStart.addEventListener('click', buttonClick);
+
 
 
 

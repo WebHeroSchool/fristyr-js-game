@@ -5,9 +5,10 @@ class Game {
       this.isRunning = false;
       this.isMouse = false;
       this.levelSpeed = 0;
-      this.speed = 1500;
+      this.speed = 2200;
       this.currentEmoji = null;
-      this.currentPipe = null
+      this.currentPipe = null;
+      this.gameInterval = null;
 
       
 
@@ -23,6 +24,12 @@ class Game {
       
   }
 
+  mouseChance() {
+    for (var i = 0; i < 11; i++) {
+      this.animals.push('🐭');
+    }
+  }
+
   fillLives() {
     this.heartElem.forEach((live) => live.classList.add('lives-wrapp__heart_active'));
     this.lives = this.heartElem.length;
@@ -32,29 +39,40 @@ class Game {
     this.livesInStock = document.querySelectorAll('.lives-wrapp__heart_active');
     this.lives = this.livesInStock.length;
     this.livesInStock[this.livesInStock.length - 1].classList.remove('lives-wrapp__heart_active');
-    this.lives = this.lifes - 1;
+    this.lives = this.lives - 1;
   }
 
   fillInitScore() {
     this.score = 0
     this.scoreElement = document.querySelector('.score__value');
-    this.scoreElement.innerHTML = this.score;
+    
   }
 
   fillMainScore(num) {
     this.score = this.score + num;
-    this.scoreElement = document.querySelector('.score__value');
     this.scoreElement.innerHTML = this.score;
   }
 
-  fillInitLevel() {
-    this.levelSpeed += 1;
-    this.speedValueNum.innerHTML = '';
-    setTimeout(()=> this.speedValueNum.innerHTML = this.levelSpeed, 600);
+  starAnimation() {
+    this.speedValueNum.parentNode.classList.remove('star-animation');
+    this.speedValueNum.parentNode.classList.add('star-animation');
+    setTimeout(()=> this.speedValueNum.parentNode.classList.remove('star-animation'), 900);
   }
 
+  fillInitLevel() {
+    clearTimeout(this.animationTimeOut);
+    this.levelSpeed += 1;
+    this.speedValueNum.innerHTML = '';
+    setTimeout(()=> this.speedValueNum.innerHTML = this.levelSpeed, 800);
+    this.starAnimation()
+  }
 
-
+  setMoreSpeed(num) {
+    this.speed = this.speed - num;
+    clearInterval(this.gameInterval);
+    this.gameInterval = setInterval(() => this.creatingAnimals(), this.speed);
+    this.fillInitLevel();
+  }
 
   randomPipe() {
       const indexPipe = Math.floor (Math.random() * this.selectPipe.length);
@@ -81,24 +99,51 @@ creatingAnimals() {
     }, this.speed);
   }
 
-startGame() {
+  startGame() {
+    this.mouseChance();
     this.fillLives();
     this.fillInitScore();
     this.fillInitLevel();
-    setInterval(() => this.creatingAnimals(), this.speed);
-    document.addEventListener('click', (e) => this.clickOnEmoji(e));
+    this.gameInterval = setInterval(() => this.creatingAnimals(), this.speed);
+    document.addEventListener('click', (e)=>{
+        if(e.target !== this.startButt){
+            this.clickOnEmoji(e);
+        }
+    });
   }
 
  clickOnEmoji(evt) {
     if (evt.target === this.currentPipe) {
       console.log('emoji = ' + this.currentEmoji)
     }
+    if (evt.target.innerHTML === '🐭') {
+      this.fillMainScore(10);
+      if (this.score % 50 === 0) {
+        this.setMoreSpeed(1000);
+        console.log('setMoreSpeed');
+      }
+    } else if (evt.target.closest('.game-zone')) {
+      this.deleteHeart();
+    }
     document.removeEventListener('click', (e) => this.clickOnEmoji(e)); 
   } 
     
 }
 
-let buttonStart = document.querySelector('.button_start');
+let buttonStart = document.querySelector('.button_start'); // Select game butt
+
+let modalBlock = document.querySelector('.rules'); // select modal guide  
+let openModal = document.querySelector('.button_guide'); // select '?' butt  
+let closeModal = modalBlock.querySelector('.modal__submit_ok-butt'); // select 'OK' inside the modal rule
+
+openModal.addEventListener('click', ()=> {
+  modalBlock.classList.add('show-rules');
+
+})
+
+closeModal.addEventListener('click', ()=> {
+  modalBlock.classList.remove('show-rules');
+})
 
 
 function buttonClick () {
@@ -108,8 +153,6 @@ function buttonClick () {
 }
   
 buttonStart.addEventListener('click', buttonClick);
-
-
 
 
 

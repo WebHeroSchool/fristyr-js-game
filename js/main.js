@@ -113,8 +113,9 @@ creatingAnimals() {
   }
 
  clickOnEmoji(evt) {
+    
     if (evt.target === this.currentPipe) {
-      console.log('emoji = ' + this.currentEmoji)
+      console.log('emoji = ' + this.currentEmoji);
     }
     if (evt.target.innerHTML === '🐭') {
       this.fillMainScore(10);
@@ -125,6 +126,7 @@ creatingAnimals() {
     } else if (evt.target.closest('.game-zone')) {
       this.deleteHeart();
     }
+    this.currentPipe.innerHTML = '';
     document.removeEventListener('click', (e) => this.clickOnEmoji(e)); 
   } 
     

@@ -5,7 +5,7 @@ class Game {
       this.isRunning = false;
       this.isMouse = false;
       this.levelSpeed = 0;
-      this.speed = 2200;
+      this.speed = 2100;
       this.currentEmoji = null;
       this.currentPipe = null;
       this.gameInterval = null;
@@ -113,20 +113,21 @@ creatingAnimals() {
   }
 
  clickOnEmoji(evt) {
-    
     if (evt.target === this.currentPipe) {
       console.log('emoji = ' + this.currentEmoji);
     }
     if (evt.target.innerHTML === '🐭') {
       this.fillMainScore(10);
       if (this.score % 50 === 0) {
-        this.setMoreSpeed(1000);
+        this.setMoreSpeed(200);
         console.log('setMoreSpeed');
       }
     } else if (evt.target.closest('.game-zone')) {
       this.deleteHeart();
     }
     this.currentPipe.innerHTML = '';
+    clearInterval( this.gameInterval);
+    this.gameInterval = setInterval(() => this.creatingAnimals(), this.speed);
     document.removeEventListener('click', (e) => this.clickOnEmoji(e)); 
   } 
     

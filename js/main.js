@@ -46,7 +46,6 @@ class Game {
   fillInitScore() {
     this.score = 0
     this.scoreElement = document.querySelector('.score__value');
-    
   }
 
   fillMainScore(num) {
@@ -111,8 +110,8 @@ class Game {
     document.removeEventListener('click', this.clickOnEmoji);
     this.closeEndModal.addEventListener('click', () => {
       this.endGameModal.classList.remove('end-game_show');
-      this.fillInitScore();
-      this.speedValueNum.innerHTML = "1";
+      this.scoreElement.innerHTML = '0';
+      this.speedValueNum.innerHTML = '1';
       buttonStart.addEventListener('click', buttonClick);
     })
   }

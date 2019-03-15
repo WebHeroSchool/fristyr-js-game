@@ -223,6 +223,10 @@ body {
     display: none;
 }
 
+.show-rules {
+    display: block;
+}
+
 .modal {
     position: absolute;
     left: 50%;
@@ -332,7 +336,16 @@ body {
 }
 
 
-
+.star-animation {
+    animation-name: levelUp;
+    animation-duration: 0.8s;
+  }
+  
+  @keyframes levelUp {
+    40% {
+      transform: translateY(-30px) rotateY(180deg);
+    }
+  }
 
 .game-zone__pipe_animal {
     transition: all 1s ease;

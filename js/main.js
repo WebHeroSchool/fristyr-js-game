@@ -5,7 +5,7 @@ class Game {
       this.isRunning = false;
       this.isMouse = false;
       this.levelSpeed = 0;
-      this.speed = 2100;
+      this.speed = 1850;
       this.currentEmoji = null;
       this.currentPipe = null;
       this.gameInterval = null;
@@ -21,6 +21,11 @@ class Game {
       this.heartElem = document.querySelectorAll('.lives-wrapp__heart');
       this.livesInStock = document.querySelectorAll('.lives-wrapp__heart_active');
       this.speedValueNum = document.querySelector('.speed__value_num');
+
+      this.pointsElementFinal = document.querySelector('.end-game__value');
+      this.gameOverModal = document.querySelector('.end-game');
+      this.closeGameOver = document.querySelector('.modal__submit');
+      
       
   }
 
@@ -92,12 +97,20 @@ creatingAnimals() {
     let currentPipe = this.randomPipe();
     this.currentEmoji = this.randomAnimals();
     currentPipe.innerHTML = this.currentEmoji;
-    currentPipe.classList.add('emoji_animation');
-    setTimeout(()=> {
-      currentPipe.classList.remove('emoji_animation');
-      currentPipe.innerHTML = '';
-    }, this.speed);
+
+    if (this.lives > 0) {
+      currentPipe.classList.add('emoji_animation');
+      setTimeout(()=> {
+        currentPipe.classList.remove('emoji_animation');
+        currentPipe.innerHTML = '';
+      }, this.speed);
+    } else {
+      this.gameOver();
+    }
+
   }
+
+  
 
   startGame() {
     this.mouseChance();
@@ -112,6 +125,17 @@ creatingAnimals() {
     });
   }
 
+  gameOver() {
+    this.pointsElementFinal.innerHTML = this.points;
+    this.gameOverModal.classList.add('end-game_show');
+    this.closeGameOver.addEventListener('click', () => {
+      this.gameOverModal.classList.remove('end-game_show');
+      this.fillInitScore();
+      this.speedValueNum.innerHTML = "1";
+      buttonStart.addEventListener('click', buttonClick);
+    })
+  }
+
  clickOnEmoji(evt) {
     if (evt.target === this.currentPipe) {
       console.log('emoji = ' + this.currentEmoji);
@@ -119,7 +143,7 @@ creatingAnimals() {
     if (evt.target.innerHTML === '🐭') {
       this.fillMainScore(10);
       if (this.score % 50 === 0) {
-        this.setMoreSpeed(200);
+        this.setMoreSpeed(250);
         console.log('setMoreSpeed');
       }
     } else if (evt.target.closest('.game-zone')) {
@@ -130,8 +154,9 @@ creatingAnimals() {
     this.gameInterval = setInterval(() => this.creatingAnimals(), this.speed);
     document.removeEventListener('click', (e) => this.clickOnEmoji(e)); 
   } 
-    
 }
+
+
 
 let buttonStart = document.querySelector('.button_start'); // Select game butt
 

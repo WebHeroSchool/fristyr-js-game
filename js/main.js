@@ -1,3 +1,5 @@
+
+
 class Game {
   constructor(){
       this.score = 0;
@@ -24,7 +26,7 @@ class Game {
 
       this.pointsElementFinal = document.querySelector('.end-game__value');
       this.gameOverModal = document.querySelector('.end-game');
-      this.closeGameOver = document.querySelector('.modal__submit');
+      this.closeGameOver = document.querySelector('.submit-ok');
       
       
   }
@@ -107,10 +109,19 @@ creatingAnimals() {
     } else {
       this.gameOver();
     }
-
+    
   }
-
   
+  gameOver() {
+    this.pointsElementFinal.innerHTML = this.score;
+    this.gameOverModal.classList.add('end-game_show');
+    this.closeGameOver.addEventListener('click', () => {
+      this.gameOverModal.classList.remove('end-game_show');
+      this.fillInitScore();
+      this.speedValueNum.innerHTML = "1";
+      buttonStart.addEventListener('click', buttonClick);
+    })
+  }
 
   startGame() {
     this.mouseChance();
@@ -123,17 +134,6 @@ creatingAnimals() {
             this.clickOnEmoji(e);
         }
     });
-  }
-
-  gameOver() {
-    this.pointsElementFinal.innerHTML = this.points;
-    this.gameOverModal.classList.add('end-game_show');
-    this.closeGameOver.addEventListener('click', () => {
-      this.gameOverModal.classList.remove('end-game_show');
-      this.fillInitScore();
-      this.speedValueNum.innerHTML = "1";
-      buttonStart.addEventListener('click', buttonClick);
-    })
   }
 
  clickOnEmoji(evt) {
@@ -181,6 +181,7 @@ function buttonClick () {
 }
   
 buttonStart.addEventListener('click', buttonClick);
+
 
 
 
